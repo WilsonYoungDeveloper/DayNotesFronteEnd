@@ -8,6 +8,11 @@ import './style-priority.css'
 function Notes({ data, handleDelete, handleChangePriority }) {
 
     const [changedNotes, setChangedNote] = useState('');
+    const token = localStorage.getItem('token');
+    const headers = {
+        'Content-Type': 'application/json',
+        'x-access-token': token
+    };
 
     async function handleSave(e, notes) {
 
@@ -17,7 +22,14 @@ function Notes({ data, handleDelete, handleChangePriority }) {
         if (changedNotes && changedNotes !== notes) {
             await api.put(`/annotations/${data._id}`, {
                 notes: changedNotes
-            });
+            }, { headers })
+                .then((response) => {
+                    if (response.data.auth)
+                        localStorage.setItem('token', response.data.token);
+                })
+                .catch((error) => {
+                    localStorage.clear();
+                });
         }
     }
 

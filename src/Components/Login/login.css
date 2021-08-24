@@ -1,0 +1,29 @@
+#login {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+
+    text-align: center;
+    margin: 3%;
+    width: -webkit-fill-available;
+}
+
+@media (max-width: 1000px){
+    #login {
+        flex-direction: column;
+        align-items: unset;
+    }
+
+    #login main {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+
+    #login aside {
+        width: 100%;
+    } 
+}

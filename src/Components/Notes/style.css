@@ -52,3 +52,23 @@ li.notepad-infos span:hover {
     color: #eb8f7a;
     transition: 0.2s;
 }
+
+.header{
+    background: #fff;
+    display: flex;
+    position: fixed;
+    right: 0;
+    left: 0;
+    border-bottom: outset;
+}
+
+@media (max-width: 1000px){
+.header{
+    background: #fff;
+    display: flex;
+    position: relative;
+    right: 0;
+    left: 0;
+    border-bottom: outset;
+}
+}
